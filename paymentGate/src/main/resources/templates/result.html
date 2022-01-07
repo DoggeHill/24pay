@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>24-Pay.</title>
+    <link th:href="@{/main.fbbd065a.css}" rel="stylesheet"/>
+
+</head>
+<body>
+<main class="payment-form">
+    <header class="payment-form__header">
+        <h1>24-pay. Payment gate test</h1>
+    </header>
+
+    <section class="payment-wrapper">
+        <div class="result-table" th:switch="${status}">
+            <div th:case="'OK'">
+                <!-- print object is not active -->
+                <h2 class="status status--success">Payment done!</h2>
+
+                <div>
+                    <p>Amount:</p>
+                    <span th:text="${amount}"></span>
+                    &nbsp;
+                    <span th:text="${currCode}"></span>
+                </div>
+                <div>
+                    <p>Transaction code:</p>
+                    <span th:text="${transaction}"></span>
+                </div>
+            </div>
+            <div th:case="'FAIL'">
+                <!-- print object is not active -->
+                <h2 class="status status--error">FAILED</h2>
+            </div>
+            <div th:case="'PENDING'">
+                <!-- print object is new and active -->
+                <h2 class="status status--pending">PENDING</h2>
+            </div>
+            <div th:case="'AUTHORIZED'">
+                <!-- print object is new and active -->
+                <h2 class="status status--authorized">AUTHORIZED</h2>
+            </div>
+
+            <div class="payment-form__img">
+                <img th:src="@{/24pay.jpg}" alt="24-pay" />
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>By DoggeHill</footer>
+</body>
+</html>

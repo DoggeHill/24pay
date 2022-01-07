@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>24-Pay.</title>
+</head>
+<body>
+<main>
+    <form
+            action="https://test.24-pay.eu/pay_gate/paygt"
+            method="post"
+            enctype="application/x-www-form-urlencoded"
+            style="display: none;"
+            id="result-form"
+    >
+        <input type="text" name="Mid" th:value="${mid}"/>
+        <input type="text" name="EshopId" th:value="${eshopId}"/>
+        <input type="text" name="MsTxnId" th:value="${paymentResolution.msTxnId}"/>
+        <input type="text" name="Amount" th:value="${paymentResolution.amount}"/>
+        <input type="text" name="CurrAlphaCode" th:value="${paymentResolution.currAlphaCode}"/>
+        <input type="text" name="ClientId" th:value="${paymentResolution.client.clientId}"/>
+        <input type="text" name="FirstName" th:value="${paymentResolution.client?.firstName}"/>
+        <input type="text" name="FamilyName" th:value="${paymentResolution.client?.familyName}"/>
+        <input type="text" name="Email" th:value="${paymentResolution.client?.email}"/>
+        <input type="text" name="Country" th:value="${paymentResolution.client?.country}"/>
+        <input type="text" name="Timestamp" th:value="${paymentResolution.timeStamp}"/>
+        <input type="text" name="Sign" th:value="${sign}"/>
+        <input type="text" name="RURL" th:value="${rurl}"/>
+        <input type="text" name="RedirectSign" th:value="${paymentResolution.redirectSign}"/>
+        <input type="text" name="Debug" th:value="${paymentResolution.debug}"/>
+
+        <button class="form-row btn-wide" type="submit">Pay now!</button>
+    </form>
+</main>
+<script>
+   document.getElementById('result-form').submit();
+
+</script>
+</body>
+</html>
