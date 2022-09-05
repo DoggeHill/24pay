@@ -8,6 +8,7 @@
 
 ## Run
 Final JAR is located in target folder. 
+Access homepage: http://127.0.0.1:8024/request
 
 `
 java -jar paymentGate-0.0.1-SNAPSHOT.jar
